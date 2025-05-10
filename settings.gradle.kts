@@ -22,6 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Task_X_Managger"
+rootProject.name = "Manager X"
 include(":app")
  
