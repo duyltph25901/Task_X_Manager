@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Manager X</string>
+
+    <string name="title_onb_1">Manage your tasks</string>
+    <string name="title_onb_2">Create daily routine</string>
+    <string name="title_onb_3">Organize your tasks</string>
+    <string name="des_onb_1">You can easily manage all of your daily tasks in DoMe for free</string>
+    <string name="des_onb_2">In Manager X you can create your personalized routine to stay productive</string>
+    <string name="des_onb_3">You can organize your daily tasks by adding your tasks into separate categories</string>
+    <string name="back_uppercase">BACK</string>
+    <string name="next_uppercase">NEXT</string>
+    <string name="get_started_uppercase">GET STARTED</string>
+    <string name="skip_uppercase">SKIP</string>
+    <string name="title_welcome">Welcome to Manager X</string>
+    <string name="des_welcome">Please login to your account or create new account to continue</string>
+    <string name="login_uppercase">LOGIN</string>
+    <string name="create_account_uppercase">CREATE ACCOUNT</string>
 </resources>

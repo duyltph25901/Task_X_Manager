@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -25,14 +26,26 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.note.todo.task.x.managger.R
+import com.note.todo.task.x.managger.commons.SharedCommon.isFirstInstall
+import com.note.todo.task.x.managger.presentation.nav.Routes
 import com.note.todo.task.x.managger.ui.theme.BgColor
 import com.note.todo.task.x.managger.ui.theme.Task_X_ManaggerTheme
 import com.note.todo.task.x.managger.ui.theme.TextWhite
+import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(
     navController: NavController
 ) {
+    val timeDelay = 3000L
+
+    LaunchedEffect(Unit) {
+        delay(timeDelay)
+        moveToNextScreen(
+            navController = navController
+        )
+    }
+
     Scaffold(
         modifier = Modifier.fillMaxSize()
     ) { innerPadding ->
@@ -76,6 +89,40 @@ fun SplashScreen(
                 color = TextWhite
             )
         }
+    }
+}
+
+private fun moveToNextScreen(
+    navController: NavController
+) {
+    if (isFirstInstall)  moveToOnbScreen(
+        navController = navController
+    ) else moveToLoginScreen(
+        navController = navController
+    )
+}
+
+private fun moveToLoginScreen(
+    navController: NavController
+) = navController.navigate(
+    route = Routes.LoginRoute.route
+) {
+    popUpTo(
+        route = Routes.SplashRoute.route
+    ) {
+        inclusive = true
+    }
+}
+
+private fun moveToOnbScreen(
+    navController: NavController
+) = navController.navigate(
+    route = Routes.OnbRoute.route
+) {
+    popUpTo(
+        route = Routes.SplashRoute.route
+    ) {
+        inclusive = true
     }
 }
 
