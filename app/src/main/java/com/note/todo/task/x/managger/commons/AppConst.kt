@@ -13,4 +13,9 @@ object AppConst {
 
     internal const val KEY_PREF_IS_FIRST_INSTALL = "is_first_install"
 
+    internal const val DATABASE_NAME = "AppDatabase.db"
+    internal const val TABLE_USER_NAME = "USER_ENTITY"
+
+    internal const val DATABASE_VER = 1
+
 }

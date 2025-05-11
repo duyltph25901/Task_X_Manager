@@ -15,4 +15,12 @@
     <string name="des_welcome">Please login to your account or create new account to continue</string>
     <string name="login_uppercase">LOGIN</string>
     <string name="create_account_uppercase">CREATE ACCOUNT</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="des_input_username">Enter your Username</string>
+    <string name="password">Password</string>
+    <string name="des_input_password">* * * * * *</string>
+    <string name="or">or</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="register">Register</string>
 </resources>
