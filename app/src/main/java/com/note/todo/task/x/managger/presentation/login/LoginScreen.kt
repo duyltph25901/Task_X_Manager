@@ -1,28 +1,36 @@
 package com.note.todo.task.x.managger.presentation.login
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -30,6 +38,7 @@ import androidx.navigation.NavController
 import com.note.todo.task.x.managger.R
 import com.note.todo.task.x.managger.commons.ShapeConst.roundedShape4dp
 import com.note.todo.task.x.managger.commons.SizeConst.paddingAll
+import com.note.todo.task.x.managger.presentation.nav.Routes
 import com.note.todo.task.x.managger.ui.theme.BgColor
 import com.note.todo.task.x.managger.ui.theme.BgInput
 import com.note.todo.task.x.managger.ui.theme.Primary
@@ -239,6 +248,58 @@ fun LoginScreen(
                 )
             )
 
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center
+            ) {
+                TextButton(
+                    onClick = {
+                        moveToRegisterScreen(
+                            navController = navController
+                        )
+                    },
+                ) {
+                    val styleMsgRegister = buildAnnotatedString {
+                        withStyle(
+                            style = SpanStyle(
+                                color = Stroke,
+                                fontFamily = FontFamily(
+                                    Font(R.font.lato_regular)
+                                ),
+                                fontSize = 12.sp
+                            )
+                        ) {
+                            append(
+                                text = stringResource(
+                                    id = R.string.don_t_have_an_account
+                                )
+                            )
+                        }
+
+                        withStyle(
+                            style = SpanStyle(
+                                color = TextWhite,
+                                fontFamily = FontFamily(
+                                    Font(R.font.lato_regular)
+                                ),
+                                fontSize = 12.sp
+                            )
+                        ) {
+                            append(
+                                text = " ${stringResource(
+                                    id = R.string.register
+                                )}"
+                            )
+                        }
+                    }
+
+                    Text(
+                        text = styleMsgRegister
+                    )
+                }
+            }
+
             Spacer(
                 modifier = Modifier.height(
                     height = 20.dp
@@ -247,6 +308,11 @@ fun LoginScreen(
         }
     }
 }
+
+private fun moveToRegisterScreen(navController: NavController) =
+    navController.navigate(
+        route = Routes.RegisterRoute.route
+    )
 
 @Preview(showBackground = true)
 @Composable
